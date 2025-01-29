@@ -138,6 +138,15 @@ answerInput.addEventListener("input", () => {
   formattedAnswer.innerHTML = formatted;
 });
 
+// 音声の再生関数
+function playSound(sound) {
+  if (sound) {
+      sound.volume = 1.0; // 音量を最大に設定
+      sound.muted = false; // ミュート解除
+      sound.play().catch(error => console.log("音声再生エラー:", error));
+  }
+}
+
 // 提出
 submitBtn.addEventListener("click", () => {
 submitBtn.style.display = "none";// 提出ボタンを非表示
@@ -153,11 +162,11 @@ function showFeedback(isCorrect) {
   if (isCorrect) {
       
       feedbackEl.textContent = `正解！ ${remainingTime} 点`;
-      correctSound.play();
+      playSound(correctSound);
       score += remainingTime;
       correctCount++;
   } else {
-      wrongSound.play();
+      playSound(wrongSound);
       feedbackEl.textContent = `不正解。正解は ${quizData[currentLevel][currentQuestionIndex].formula} です。`;
   }
 }
@@ -211,11 +220,11 @@ function formatAnswer(value) {// 入力をフォーマットする関数
   let result = ""; // フォーマット後の文字列
   for (let i = 0; i < value.length; i++) {// 入力文字列を1文字ずつ処理
       if (value[i] === "^" && i > 0) {// ^の前の文字を上付きに
-          uetukiSound.play();
+          playSound(uetukiSound);
           const lastChar = result.slice(-1); // 直前の文字を取得
           result = result.slice(0, -1) + `<sup>${lastChar}</sup>`;// 直前の文字を上付きに
       } else if (value[i] === "_" && i > 0) {// _の前の文字を下付きに
-          sitatukiSound.play();  
+          playSound(sitatukiSound); 
           const lastChar = result.slice(-1); // 直前の文字を取得
           result = result.slice(0, -1) + `<sub>${lastChar}</sub>`;// 直前の文字を下付きに
       } else if (value[i] !== "^" && value[i] !== "_") {// 通常の文字はそのまま追加
@@ -224,3 +233,11 @@ function formatAnswer(value) {// 入力をフォーマットする関数
   }
   return result;// フォーマット後の文字列を返す
 }
+
+// ユーザーの最初の操作時に音を有効化
+document.addEventListener("click", () => {
+  playSound(correctSound);
+  playSound(wrongSound);
+  playSound(uetukiSound);
+  playSound(sitatukiSound);
+}, { once: true }); // 1回だけ実行
