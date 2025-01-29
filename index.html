@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イオン式クイズ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>イオン式クイズ</h1>
+        <div id="menu">
+            <label >名称から化学式を入力してください</label><br><br>
+            <label >^を入力すると1文字前だけ上付き</label><br>
+            <label >_を入力すると1文字前だけ下付き</label><br>
+            <label >になります</label><br><br>
+            <label for="level-select">レベルを選択:</label>
+            <select id="level-select">
+                <option value="1">レベル1</option>
+                <option value="2">レベル2</option>
+                <option value="3">レベル3</option>
+                <option value="4">レベル4</option>
+            </select>
+            <button id="start-quiz">開始</button>
+        </div>
+
+        <div id="quiz" class="hidden">
+            <div id="question-area">
+                <p id="question">問題がここに表示されます</p>
+                <input type="text" id="answer" autocomplete="off" />
+                <button id="submit-answer">提出</button>
+                <button id="next-button" style="display: none;">次の問題</button>
+            </div>
+            <p id="timer">残り時間: <span id="time-left">20</span>秒</p>
+            <p id="large-display"></p>
+            <p id="feedback"></p>
+            <audio id="correctSound" src="pinpon.mp3"></audio> 
+            <audio id="wrongSound" src="bubu-.mp3"></audio>
+            <audio id="uetukiSound" src="uetuki.wav"></audio> 
+            <audio id="sitatukiSound" src="sitatuki.wav"></audio> 
+    
+        </div>
+<!-- 解答入力フィールド -->
+<!--<div id="answer-container">
+    <input type="text" id="answer" placeholder="解答を入力してください" />
+  </div>
+  
+  <!-- 解答を大きく表示するエリア -->
+  <div id="formatted-answer" class="formatted-answer"></div>
+  
+  <!-- 提出ボタン -->
+  <!--<button id="submit-answer">提出</button>-->
+  
+  <!-- 残り時間の表示 -->
+  <div id="time-left"></div>
+  
+        <div id="result" class="hidden">
+            <p id="score">総得点: 0</p>
+            <p id="accuracy">正答率: 0%</p>
+            
+            <button id="retry">もう一回</button>
+            <button id="exit">終了</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
