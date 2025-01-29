@@ -235,9 +235,9 @@ function formatAnswer(value) {// 入力をフォーマットする関数
 }
 
 // ユーザーの最初の操作時に音を有効化
-document.addEventListener("click", () => {
-  playSound(correctSound);
-  playSound(wrongSound);
-  playSound(uetukiSound);
-  playSound(sitatukiSound);
-}, { once: true }); // 1回だけ実行
+// document.addEventListener("click", () => {
+//  playSound(correctSound);
+//  playSound(wrongSound);
+//  playSound(uetukiSound);
+//  playSound(sitatukiSound);
+// }, { once: true }); // 1回だけ実行
