@@ -1,0 +1,67 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+.hidden {
+    display: none;
+}
+
+#large-display {
+    font-size: 2rem;
+    color: #333;
+    margin: 20px 0;
+}
+
+#feedback {
+    color: green;
+    font-weight: bold;
+}
+
+#timer {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* 中央に大きく表示 */
+#formatted-answer {
+    color: black; /* 文字色を黒に設定 */
+    font-size: 100px;
+    font-weight: bold;
+    margin-top: 10px;
+    height: 40px;
+}
+
+
+
+/* 解答入力エリア */
+#answer-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+input {
+  font-size: 1.5em;
+  padding: 10px;
+  width: 20%;
+  max-width: 400px;
+}
